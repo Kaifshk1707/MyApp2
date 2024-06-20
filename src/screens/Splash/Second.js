@@ -1,24 +1,28 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React from 'react'
 
-const Started = ({ navigation }) => {
+const Second = ({ navigation }) => {
   return (
     <View style={styles.view}>
-      <Image source={require('./../images/line5.png')} />
-      <Image source={require('./../images/Frame5.png')} style={styles.image} />
-      <Text style={styles.title}>Safer community</Text>
+      <Image source={require('./../../images/line2.png')} />
+      <Image source={require('./../../images/Frame2.png')} style={styles.image} />
+      <Text style={styles.title}>Craft & Share Content</Text>
       <Text style={styles.description}>
-        Legitimacy prioritized, unauthorized activities rejected, user privacy
-        emphasized.
+        Choose a loop, create your post, add content, and effortlessly share it
+        with your community.
       </Text>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Main')}>
-        <Image source={require('./../images/getStarted.png')} />
+        style={styles.button}
+        onPress={() => navigation.navigate('Third')}
+      >
+        <Text style={styles.buttonText}>Skip</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+export default Second;
 
 const styles = StyleSheet.create({
   view: {
@@ -47,16 +51,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'red'
   },
   buttonText: {
     color: 'white',
-    fontSize: 23,
+    fontSize: 22,
   },
   image: {
     width: 380,
     height: 510,
   },
-
 });
-export default Started;

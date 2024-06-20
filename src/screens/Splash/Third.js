@@ -1,24 +1,32 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React from 'react'
 
-const Started = ({ navigation }) => {
+const Third = ({ navigation }) => {
   return (
     <View style={styles.view}>
-      <Image source={require('./../images/line5.png')} />
-      <Image source={require('./../images/Frame5.png')} style={styles.image} />
-      <Text style={styles.title}>Safer community</Text>
+      <Image source={require('./../../images/line3.png')} />
+      <Image
+        source={require('./../../images/Frame3.png')}
+        style={styles.image}
+      />
+
+      <Text style={styles.title}>Get Blue Tick Verification</Text>
       <Text style={styles.description}>
-        Legitimacy prioritized, unauthorized activities rejected, user privacy
-        emphasized.
+        Optimize your Qoneqt profile by verifying yourself and unlocking a blue
+        checkmark!
       </Text>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Main')}>
-        <Image source={require('./../images/getStarted.png')} />
+        style={styles.button}
+        onPress={() => navigation.navigate('Fourth')}>
+        <Text style={styles.buttonText}>Skip</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+
+export default Third;
 
 const styles = StyleSheet.create({
   view: {
@@ -47,16 +55,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'red'
   },
   buttonText: {
     color: 'white',
-    fontSize: 23,
+    fontSize: 22,
   },
   image: {
     width: 380,
     height: 510,
   },
-
 });
-export default Started;

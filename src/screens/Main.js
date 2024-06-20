@@ -1,11 +1,10 @@
-import { } from 'react-native'
-import React from 'react'
-import Bottoms from '../common/Bottoms'
+// Main.js
+
+import React from 'react';
+import {Bottoms} from './../common/Bottoms'; // Import Bottoms correctly
 
 const Main = () => {
-    return (
-        <Bottoms />
-    )
-}
+  return <Bottoms />;
+};
 
 export default Main;

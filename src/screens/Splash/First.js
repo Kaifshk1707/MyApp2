@@ -1,24 +1,27 @@
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 
-const Started = ({ navigation }) => {
+const First = ({ navigation }) => {
   return (
     <View style={styles.view}>
-      <Image source={require('./../images/line5.png')} />
-      <Image source={require('./../images/Frame5.png')} style={styles.image} />
-      <Text style={styles.title}>Safer community</Text>
+      <Image source={require('./../../images/line.png')} />
+      <Image source={require('./../../images/Frame.png')} style={styles.image} />
+      <Text style={styles.title}>Build Your Own Community</Text>
       <Text style={styles.description}>
-        Legitimacy prioritized, unauthorized activities rejected, user privacy
-        emphasized.
+        Customize your experience: Public, Private, and Premium groups await on
+        our Web 3.0 platform.
       </Text>
-
       <TouchableOpacity
-        onPress={() => navigation.navigate('Main')}>
-        <Image source={require('./../images/getStarted.png')} />
+        style={styles.button}
+        onPress={() => navigation.navigate('Second')}
+      >
+        <Text style={styles.buttonText}>Skip</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+export default First;
 
 const styles = StyleSheet.create({
   view: {
@@ -26,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     fontSize: 25,
@@ -47,16 +50,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'red'
   },
   buttonText: {
     color: 'white',
-    fontSize: 23,
+    fontSize: 22,
   },
   image: {
     width: 380,
     height: 510,
   },
-
 });
-export default Started;
