@@ -8,6 +8,7 @@ import Started from './screens/Started';
 import MyDetails from './screens/MyDetails';
 import Menu from './screens/Menu';
 import DestinationScreen from './screens/DestinationScreen';
+import DestinationScreen2 from './screens/DestinationScreen2';
 import First from './screens/Splash/First';
 import Second from './screens/Splash/Second';
 import Third from './screens/Splash/Third';
@@ -16,15 +17,22 @@ import UserProfile from './screens/UserProfile';
 import ShowDetails from './modals/ShowDetails';
 import Message from './modals/Message';
 import Report from './modals/Report';
+import Login from './screens/Login';
 
 const Stack = createStackNavigator();
 const AppNavigator = () => {
   return (
+
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
           component={Splash}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -90,6 +98,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Report"
           component={Report}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="DestinationScreen2"
+          component={DestinationScreen2}
           options={{ headerShown: true }}
         />
 

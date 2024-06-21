@@ -6,10 +6,6 @@ import feedData from './../materialTabs/feedData';
 const Home = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
-    const handled = () => {
-        console.log('Image Clicked');;
-    }
-
     const renderItem = ({ item }) => (
         <View style={styles.feedItem}>
             <TouchableOpacity onPress={() => navigation.navigate('UserProfile')}>
@@ -64,19 +60,19 @@ const Home = ({ navigation }) => {
                         <Text style={styles.modalTitle}>Share To</Text>
                         <View style={styles.shareOptions}>
                             <TouchableOpacity style={styles.shareOption}>
-                                <Icon name="instagram" size={30} color="#E1306C" />
+                                <Icon name="instagram" size={30} color="#E1306C" onPress={() => navigation.navigate('Chats')} />
                                 <Text style={styles.shareText}>Instagram</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.shareOption}>
-                                <Icon name="whatsapp" size={30} color="#25D366" />
+                            <TouchableOpacity style={styles.shareOption} >
+                                <Icon name="whatsapp" size={30} color="#25D366" onPress={() => navigation.navigate('Chats')} />
                                 <Text style={styles.shareText}>WhatsApp</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.shareOption}>
-                                <Icon name="linkedin" size={30} color="#0077B5" />
+                                <Icon name="linkedin" size={30} color="#0077B5" onPress={() => navigation.navigate('Chats')} />
                                 <Text style={styles.shareText}>LinkedIn</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.shareOption}>
-                                <Icon name="share-alt" size={30} color="#000" />
+                                <Icon name="share-alt" size={30} color="#000" onPress={() => navigation.navigate('Chats')} />
                                 <Text style={styles.shareText}>Others</Text>
                             </TouchableOpacity>
                         </View>
@@ -89,9 +85,6 @@ const Home = ({ navigation }) => {
                     </View>
                 </View>
             </Modal >
-            <TouchableOpacity style={styles.fab} onPress={handled}>
-                <Icon name="image" size={20} color='White' />
-            </TouchableOpacity >
         </>
     );
 };

@@ -1,26 +1,77 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React from 'react';
+import {
+    View,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { THEMES_COLOR } from '../common/Colors';
+import MyGroup from '../materialTabs/GroupTabs/MyGroup';
+import FollowingGroup from '../materialTabs/GroupTabs/FollowingGroup';
 
-const Group = ({ navigation }) => {
+const Tab = createMaterialTopTabNavigator();
+
+const DestinationScreen = ({ navigation }) => {
     return (
-        <View style={styles.view}>
-            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Text style={styles.text}>Group</Text>
-            </TouchableOpacity>
-        </View>
-    )
-}
+        <View style={styles.container}>
+            <View style={styles.inputView}>
+                <TextInput placeholder="Search" style={styles.textInput} />
+                <TouchableOpacity
+                    style={styles.icon}
+                    onPress={() => navigation.navigate('Search')}>
+                    <Icon name="search" size={25} color="#555956" />
+                </TouchableOpacity>
+            </View>
 
-export default Group;
+            <Tab.Navigator
+                screenOptions={{
+                    tabBarActiveTintColor: '#555956',
+                    tabBarInactiveTintColor: 'gray',
+                    tabBarIndicatorStyle: { backgroundColor: '#555956' },
+                    tabBarStyle: { backgroundColor: 'white' },
+                }}>
+                <Tab.Screen name="Feeds" component={MyGroup} />
+                <Tab.Screen name="Groups" component={FollowingGroup} />
+            </Tab.Navigator>
+        </View>
+    );
+};
+
+export default DestinationScreen;
+
 const styles = StyleSheet.create({
-    view: {
-        flex: 1
+    container: {
+        flex: 1,
+        padding: 10,
     },
-    text: {
-        fontSize: 40,
-        color: THEMES_COLOR,
-        justifyContent: 'center',
-        textAlign: 'center'
-    }
-})
+    textInput: {
+        height: 60,
+        padding: 10,
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: '#555956',
+        borderRadius: 5,
+        flex: 1,
+    },
+    inputView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 7,
+    },
+    icon: {
+        padding: 10,
+    },
+    buttonContainer: {
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    button: {
+        backgroundColor: THEMES_COLOR,
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+    },
+});

@@ -1,27 +1,27 @@
-import { View, TextInput, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
+import MyGroup from '../materialTabs/GroupTabs/MyGroup';
+import FollowingGroup from '../materialTabs/GroupTabs/FollowingGroup';
 
 const Tab = createMaterialTopTabNavigator();
-
 const Chats = ({ navigation }) => {
+
+
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Search"
-                />
-                <TouchableOpacity style={styles.searchButton} onPress={() => navigation.navigate('DestinationScreen2')}>
+                <TextInput style={styles.input} placeholder="Search" />
+                <TouchableOpacity style={styles.searchButton}>
                     <Image source={require('./../images/search.png')} style={styles.searchIcon} />
                 </TouchableOpacity>
             </View>
-            <TouchableOpacity  >
-                <Icon name="chevron-up" size={25} color="#555956" alignSelf={'center'} onPress={() => navigation.navigate('DestinationScreen2')} />
-
-            </TouchableOpacity>
+            <View style={styles.tabContainer}>
+                <Tab.Navigator>
+                    <Tab.Screen name="Groups" component={MyGroup} />
+                    <Tab.Screen name="Following Group" component={FollowingGroup} />
+                </Tab.Navigator>
+            </View>
         </View>
     );
 };
@@ -31,33 +31,30 @@ export default Chats;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-between',
-        padding: 20,
+        backgroundColor: '#f0f0f0',
     },
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         borderColor: 'gray',
         borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
         marginBottom: 20,
+        padding: 5,
     },
     input: {
         flex: 1,
         height: 40,
         fontSize: 18,
+        paddingHorizontal: 10,
     },
     searchButton: {
-        marginLeft: 10,
+        padding: 5,
     },
     searchIcon: {
         width: 20,
         height: 20,
     },
-    viewGroupsText: {
-        fontSize: 18,
-        alignSelf: 'center',
+    tabContainer: {
+        flex: 1,
     },
 });
